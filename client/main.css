@@ -1,0 +1,14 @@
+
+
+.emailWhenOpen{
+    width:50px;
+    border: 1px #800000 solid;
+    border-bottom: 0px #800000 solid;
+    border-left: 0px #800000
+}
+
+.trackMe{
+    font-size: 1em;
+    margin: 0px;
+    background: rgb(165, 165, 255);
+}

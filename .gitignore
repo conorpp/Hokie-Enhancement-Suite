@@ -13,6 +13,7 @@ lib-cov
 #secret files
 *.crx
 *.pem
+settings*
 
 # Coverage directory used by tools like istanbul
 coverage

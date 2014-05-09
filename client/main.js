@@ -1,6 +1,5 @@
 
 $(document).on('ready', function(){    
-    console.log('IM IN!');
         
     var table = $('.dataentrytable');
     S.getEmail(function(d){
@@ -106,8 +105,8 @@ var S = {
         this.header.prepend(c);
     },
     
-    send: function(email, add, crn){
-        var data = { email: email, add: add, crn:crn };
+    send: function(email, add, crn, GET){
+        var data = { email: email, add: add, crn:crn, GET:GET };
         console.log('sending ', data);
         $.ajax({
           type: 'POST',
@@ -188,6 +187,9 @@ function sendEmail(map) {
     return function(){
         var crn = map[1].text;
         var text = map[2].text;
+        var GET = $($(map[1].html).siblings('a')[0]).attr('href').split("\"")[1];
+
+        console.log('GET: ', GET);
         var r=confirm("Are you sure you want be emailed when a spot opens up for " +
                       text+'  CRN: '+crn+'?  You will be sent a confirmation email.');
         if (!r) 
@@ -197,10 +199,10 @@ function sendEmail(map) {
                         +this.id+'">untrack</button>');
         untrack.on('click', function(){
             new Entry(map.row);
-            S.send(S.email, false, crn);
+            S.send(S.email, false, crn, GET);
         });
         $(this).html(untrack);
-        S.send(S.email, true, crn);
+        S.send(S.email, true, crn, GET);
     }
 }
 

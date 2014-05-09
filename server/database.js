@@ -22,8 +22,8 @@ module.exports =
 
 (function(){
 
-var fs = require('fs');
-var T = require('child_process');
+var fs = 	require('fs'),
+    T =		require('child_process');
 
 var db = {
 

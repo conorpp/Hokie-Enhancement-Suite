@@ -3,12 +3,12 @@ Hokie Enhancement Suite
 
 An enhancement suite for the time table of classes that includes:
 
-  `A better look`
+          `A better look`
+    
+          `table sorting`
   
-  `table sorting`
-  
-  `emailing when a spot for a class opens`
-  
+          `emailing when a spot for a class opens`
+    
   
 If you'd like to install the extension, you can find it on the Google Chrome Extension store.  It is free.
 

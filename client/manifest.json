@@ -13,7 +13,8 @@
             ],
   "content_scripts": [
     {
-      "matches": ["https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"],
+      "matches": ["https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest",
+                  "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_DispRequest"],
       "excudes": ["*"],
       
       //  Addons
@@ -26,7 +27,9 @@
              
              "addons/design/design.js",       // design
              
-             "addons/popup/popup.js"          // popup
+             "addons/popup/popup.js",          // popup
+
+             "addons/ordering/ordering.js"          // popup
              ]            
     }
   ]

@@ -8,12 +8,12 @@ Number.prototype.square = function(){ return this*this; };
 Number.prototype.sqrt = function(){ return Math.sqrt(this); };
 String.prototype.int = function(){ return parseInt(this); };
 
-$(document).on('ready', function(){    
+(function(){
     
     var lastPopup = new Date().getTime();
     
     /* popup iframe when a link is hovered over */
-    $(document).on('mouseover', 'a',function(ev){
+    $(document).on('mouseover', 'a', function(ev){
         // 800 ms debounce
         if (new Date().getTime() - lastPopup < 800)
             return;
@@ -39,7 +39,7 @@ $(document).on('ready', function(){
     $(document).on('click', '.popupX, body', function(){
         P.wipePopups();    
     });
-});
+})();
 
 
 /* main object */

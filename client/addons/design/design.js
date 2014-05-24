@@ -3,13 +3,13 @@
 */
 
 
-$(document).on('ready', function(){    
+(function(){
     console.log('Welcome to Hokie Enhancement Suite!');
 
     /* update format that requires JS */
     Sty.removeOldStyles();
     Sty.addNewStyles();
-});
+})();
 
 
 /* main object */

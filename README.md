@@ -17,13 +17,13 @@ If you'd like to contribute to this project send me a message or make a pull req
 
 Making a chrome extension is pretty easy.
 
-    git clone https://github.com/conorpp/Hokie-Enhancement-Suite
+`git clone https://github.com/conorpp/Hokie-Enhancement-Suite`
     
-    Go to chome://extensions
+`Go to chome://extensions`
     
-    Click on "Load unpacked extension ..."
+`Click on "Load unpacked extension ..."`
     
-    Open Hokie-Enhancement-Suite/client
+`Open Hokie-Enhancement-Suite/client`
     
 ### Structure
 

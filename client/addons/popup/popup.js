@@ -13,7 +13,7 @@ $(document).on('ready', function(){
     var lastPopup = new Date().getTime();
     
     /* popup iframe when a link is hovered over */
-    $('a').on('mouseover', function(ev){
+    $(document).on('mouseover', 'a',function(ev){
         // 800 ms debounce
         if (new Date().getTime() - lastPopup < 800)
             return;
@@ -27,8 +27,8 @@ $(document).on('ready', function(){
             return;
         lastPopup = new Date().getTime();
         P.wipePopups();
-        var pop = P.popup(ev.pageX, ev.pageY, {'invert':invert, "url": url});
-        $('body').append(pop.html);
+        P.popup(ev.pageX, ev.pageY, {'invert':invert, "url": url});
+        
     });
     
     /* remove old iframe popups */
@@ -36,7 +36,7 @@ $(document).on('ready', function(){
         if (P.lastPopupDistance(ev.pageX, ev.pageY) > 530)
             P.wipePopups();
     });
-    $(document).on('click', '.popupX', function(){
+    $(document).on('click', '.popupX, body', function(){
         P.wipePopups();    
     });
 });
@@ -48,11 +48,11 @@ var P = {
     _popups:0,
     _saved:[],
     
-    /* Returns a popup object but does not add to html document */
+    /* Adds popup to html document */
     popup:function(x,y, options){
         var p = new Popup(x,y, options);
         this._saved.push(p);
-        return p;
+        $('body').append(p.html);
     },
     
     /* Deletes all popups */
@@ -79,15 +79,18 @@ var P = {
         var href = $(obj).attr('href');
         if (!href) return null;
         if (href.indexOf('http') != -1 && href.indexOf('https') == -1) {
+            console.log('ignoring http');
             return null;                            // Dont bother with http links because they are insecure and get blocked.
         }
         if (href.indexOf('flexibleWindow') != -1 || href.indexOf('javascript') != -1) {
             href = href.replace(/\'/g, '"');
+            console.log('parsed ', href);
             return href.split('"')[1];
         }
         else if (href.indexOf('https') != -1) {
             return href;
         }
+        console.log('ignoring bad link');
         return null;
     }
     

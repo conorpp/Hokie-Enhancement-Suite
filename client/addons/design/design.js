@@ -3,16 +3,6 @@
 */
 
 
-(function(){
-    console.log('Welcome to Hokie Enhancement Suite!');
-
-    /* update format that requires JS */
-    Sty.removeOldStyles();
-    Sty.addNewStyles();
-})();
-
-
-/* main object */
 var Sty = {
     
     /* Removes formats needed to be removed with JS */
@@ -34,4 +24,10 @@ var Sty = {
     
 };
 
+(function(){
+    console.log('Welcome to Hokie Enhancement Suite!');
 
+    /* update format that requires JS */
+    Sty.removeOldStyles();
+    Sty.addNewStyles();
+})();

@@ -10,8 +10,13 @@ String.prototype.int = function(){ return parseInt(this); };
 
 $(document).on('ready', function(){    
     
+    var lastPopup = new Date().getTime();
+    
     /* popup iframe when a link is hovered over */
     $('a').on('mouseover', function(ev){
+        // 800 ms debounce
+        if (new Date().getTime() - lastPopup < 800)
+            return;
         
         var invert = false;
         if ($( window ).width() - ev.pageX < 300) {
@@ -20,7 +25,7 @@ $(document).on('ready', function(){
         var url = P.parseHref(this);
         if (!url) 
             return;
-        
+        lastPopup = new Date().getTime();
         P.wipePopups();
         var pop = P.popup(ev.pageX, ev.pageY, {'invert':invert, "url": url});
         $('body').append(pop.html);

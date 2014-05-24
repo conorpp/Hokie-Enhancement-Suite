@@ -77,14 +77,12 @@ var P = {
    //'javascript:flexibleWindow("HZSKVTSC.P_ProcComments?CRN=70348&TERM=07&YEAR=2014&SUBJ=ECE&CRSE=2574&history=N","new_win","800","800","300","300","no","no","yes","no")'><b style="font-size:12px;" 
     parseHref: function(obj){
         var href = $(obj).attr('href');
-        console.log('href',href);
         if (!href) return null;
         if (href.indexOf('http') != -1 && href.indexOf('https') == -1) {
             return null;                            // Dont bother with http links because they are insecure and get blocked.
         }
         if (href.indexOf('flexibleWindow') != -1 || href.indexOf('javascript') != -1) {
             href = href.replace(/\'/g, '"');
-            console.log('split ', href.split('"'));
             return href.split('"')[1];
         }
         else if (href.indexOf('https') != -1) {

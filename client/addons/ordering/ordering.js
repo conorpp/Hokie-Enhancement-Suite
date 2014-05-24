@@ -20,8 +20,8 @@ $(document).on('ready', function(){     // need to wait for DOM to be done relia
             O.sort(index, 1);
             lastIndex = index;
         }
-        
         O.refresh();
+        O.highlightHeader(index);
     });
     
 });
@@ -33,12 +33,13 @@ var O = {
     
     table: $('table.dataentrytable'),
     rowSelector: 'tr:not(tr[bgcolor][valign])',
+    headerSelector:'tr[bgcolor][valign]',
     
     header:null,
 
     /* index the table headers */
     indexTable: function(){
-        this.header = this.table.find('tr[bgcolor][valign]');
+        this.header = this.table.find(this.headerSelector);
         var self = this;
         this.header.find('td').each(function(i){
             $(this).attr('id', 'header' + i);
@@ -64,21 +65,23 @@ var O = {
     sort: function(index, invert){
         
         this.data.sort(function(a,b){
+            try{
+                var aText = a[index].text(),
+                    bText = b[index].text(),
+                    aNum  = parseInt(aText),
+                    bNum  = parseInt(bText);
+                
+                if ((!isNaN(aNum)) && (!isNaN(bNum))) 
+                    aText = aNum, bText = bNum;
+                
+                if (aText > bText)
+                    return 1 * invert;
+                else if (bText > aText) 
+                    return -1 * invert;
+                
+                return 0;       // equal
             
-            var aText = a[index].text(),
-                bText = b[index].text(),
-                aNum  = parseInt(aText),
-                bNum  = parseInt(bText);
-            
-            if ((!isNaN(aNum)) && (!isNaN(bNum))) 
-                aText = aNum, bText = bNum;
-            
-            if (aText > bText)
-                return 1 * invert;
-            else if (bText > aText) 
-                return -1 * invert;
-            
-            return 0;       // equal
+            }catch(e){   return -1;   }  
         });
     },
     
@@ -94,6 +97,12 @@ var O = {
         }
         
         
+    },
+    
+    /* Add highlight CSS to column header */
+    highlightHeader: function(index){
+        $('.sorted').removeClass('sorted');    
+        $('#header'+index).addClass('sorted');
     }
     
 

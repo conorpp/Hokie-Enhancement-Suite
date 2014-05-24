@@ -79,18 +79,15 @@ var P = {
         var href = $(obj).attr('href');
         if (!href) return null;
         if (href.indexOf('http') != -1 && href.indexOf('https') == -1) {
-            console.log('ignoring http');
             return null;                            // Dont bother with http links because they are insecure and get blocked.
         }
         if (href.indexOf('flexibleWindow') != -1 || href.indexOf('javascript') != -1) {
             href = href.replace(/\'/g, '"');
-            console.log('parsed ', href);
             return href.split('"')[1];
         }
         else if (href.indexOf('https') != -1) {
             return href;
         }
-        console.log('ignoring bad link');
         return null;
     }
     

@@ -1,0 +1,39 @@
+/*
+    Change the design of the time table page.
+*/
+
+.indefault{
+    max-width: 250px;
+    font-size: .7em;
+}
+.infotexttable td.indefault {max-width: 650px;}
+
+.srch_results,.msgaream,ul,table[style="background:#dbd8bc;border:1px;border-style:solid;border-color:#660000;"]{
+    display: none;
+}
+
+td b, td p, td a, td{
+    font-size: 10px;
+    font-weight: normal;
+}
+
+td.delabel{
+    font-size: .7em;
+    font-weight: bold;
+}
+
+
+
+td.delabel:hover{
+    color:rgb(91, 91, 91);
+    cursor: pointer;
+}
+
+h2{
+    font-size: 1.6em;
+    margin-left: 6.1em;
+}
+h3{font-size: 1em;}
+
+table.dataentrytable{ max-width: 980px; }
+

@@ -2,20 +2,32 @@
   "manifest_version": 2,
 
   "name": "Hokie Enhancement Suite",
-  "description": "This extension to Virginia Tech's time table of classes gives students the option to get an email when a class gets an opening.  It also allows sorting of the classes.",
+  "description": "This is a client side enhancement to hokie spa.",
   "version": "0.0",
 
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-"permissions" : ["storage", "http://*/"
+"permissions" : ["storage", "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"
             ],
   "content_scripts": [
     {
-      "matches": ["https://banweb.banner.vt.edu/ssb/prod/*"],
-      "css": [ "bootstrap/css/bootstrap-responsive.min.css","main.css" ],
-      "js": [ "jquery.js","main.js"]
+      "matches": ["https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"],
+      "excudes": ["*"],
+      
+      //  Addons
+      "css": ["addons/design/bootstrap/css/bootstrap.min.css",
+              "addons/design/bootstrap/css/bootstrap-responsive.min.css",
+              "addons/design/design.css",
+              "addons/popup/popup.css"
+              ],
+      "js": [ "lib/jquery.js",                // lib
+             
+             "addons/design/design.js",       // design
+             
+             "addons/popup/popup.js"          // popup
+             ]            
     }
   ]
 }

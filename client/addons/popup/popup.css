@@ -1,0 +1,17 @@
+/*
+    Styling for the popup
+*/
+.popup{
+    background: white;
+}
+.popup iframe{
+    width:480px;
+    height:365px;
+}
+.popupX{
+    position: absolute;
+    z-index: 5;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+iframe{display: inline-block;}

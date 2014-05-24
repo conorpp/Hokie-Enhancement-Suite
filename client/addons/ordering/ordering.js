@@ -1,0 +1,4 @@
+/*
+    Allows the table of classes to ordered alphabetically or numerically
+    by clicking a header on the table.
+*/

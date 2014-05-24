@@ -23,6 +23,8 @@ var Sty = {
         var topTable = $('table[style="width:100%;background-color:#660000;padding:7px;"]');
         topTable.css('background-color','#ff6600');      // official VT orange
         topTable.find('b').css('color', '#660000 ');
+        
+        $('table.dataentrytable').addClass('table');
     },
     
     /* adds a stylesheet from extension */

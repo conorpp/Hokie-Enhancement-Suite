@@ -3,11 +3,10 @@
 
   "name": "Hokie Enhancement Suite",
   "description": "This is a client side enhancement to hokie spa.",
-  "version": "0.0",
+  "version": "1.0",
 
   "browser_action": {
     "default_icon": "vt.png"
-    //"default_popup": "popup.html"
   },
   "permissions" : ["https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest",
                               "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_DispRequest"],
@@ -22,20 +21,18 @@
                   "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_DispRequest"],
       "excudes": ["*"],
       
-      //  Addons
       "css": ["addons/popup/popup.css",
               "addons/ordering/ordering.css"
               ],
       
-      "js": [ "lib/jquery.js",                // lib
+      "js": [ "lib/jquery.js",                
              
-             "addons/design/design.js",       // design
+             "addons/design/design.js",       
              
-             "addons/popup/popup.js",          // popup
+             "addons/popup/popup.js",          
 
-             "addons/ordering/ordering.js"          // popup
+             "addons/ordering/ordering.js"     
              ]            
     }
   ]
 }
-

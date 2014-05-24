@@ -7,7 +7,7 @@ $(document).on('ready', function(){     // need to wait for DOM to be done relia
     
     O.indexTable();
     O.loadTable();
-    
+    console.log(O.data);
     var lastIndex = -1;
     $('td.sortable').on('click', function(){
         var index = $(this).attr('id').replace('header','').int();      // prototype in popup.js
@@ -55,9 +55,12 @@ var O = {
         rows.each(function(i){
             self.data[i] = [];
             var r = $(this);
-            $(this).find('td').each(function(){
-                self.data[i].push($(this)); 
+            r.find('td').each(function(){
+                self.data[i].push($(this));
             });
+            if (r.text().indexOf('Additional Times') != -1) 
+                self.combine(self.data.length-2,self.data.length-1);
+            
         });
     },
     
@@ -66,8 +69,8 @@ var O = {
         
         this.data.sort(function(a,b){
             try{
-                var aText = a[index].text(),
-                    bText = b[index].text(),
+                var aText = a[index].text().replace('* Additional Times *',''),
+                    bText = b[index].text().replace('* Additional Times *',''),
                     aNum  = parseInt(aText),
                     bNum  = parseInt(bText);
                 
@@ -98,6 +101,22 @@ var O = {
         
         
     },
+    
+    /* combines two loaded rows for indexing */
+    combine: function(r1, r2){
+        for (var i in this.data[r2]) {
+            console.log('combing '+r2);
+            console.log(this.data[r1][i],this.data[r2][i]);
+            if (this.data[r1][i] && this.data[r2][i]){
+                this.data[r1][i].html(
+                    this.data[r1][i].html()+'<br>'+this.data[r2][i].html()
+                );
+                this.data[r2][i].remove();
+            }
+        }
+        this.data.splice(r2,1);
+    },
+    
     
     /* Add highlight CSS to column header */
     highlightHeader: function(index){

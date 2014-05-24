@@ -4,7 +4,7 @@ An enhancement suite for the time table of classes web page that inludes:
 
       A better look
    
-      table sorting
+      Table sorting
   
       Link previews on mouse hover
     

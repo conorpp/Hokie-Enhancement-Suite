@@ -3,3 +3,6 @@
 .sorted{
     color:#ff6600;  /*vt orange*/
 }
+td.sorted:hover{
+    color:#ff6600;  /*vt orange*/
+}

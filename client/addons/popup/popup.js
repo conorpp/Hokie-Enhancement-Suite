@@ -11,7 +11,7 @@ String.prototype.int = function(){ return parseInt(this); };
 (function(){
     
     var lastPopup = new Date().getTime();
-    
+    var lastUrl = '';
     /* popup iframe when a link is hovered over */
     $(document).on('mouseover', 'a', function(ev){
         // 800 ms debounce
@@ -23,8 +23,10 @@ String.prototype.int = function(){ return parseInt(this); };
             invert = true;
         }
         var url = P.parseHref(this);
-        if (!url) 
+        if (!url || lastUrl == url){
+            lastUrl = '';
             return;
+        }
         lastPopup = new Date().getTime();
         P.wipePopups();
         P.popup(ev.pageX, ev.pageY, {'invert':invert, "url": url});
@@ -97,7 +99,7 @@ var P = {
 var Popup = function(x,y, options){
         options = options || {};
         if (options.invert) 
-            x = x - 450;        // css class width
+            x = x - 325;        // css class width
         if (!options.url) {
             return;
         }

@@ -5,8 +5,8 @@
     background: white;
 }
 .popup iframe{
-    width:480px;
-    height:365px;
+    width:325px;
+    height:325px;
 }
 .popupX{
     position: absolute;

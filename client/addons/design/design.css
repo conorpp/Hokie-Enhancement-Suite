@@ -22,9 +22,7 @@ td.delabel{
     font-weight: bold;
 }
 
-
-
-td.delabel:hover{
+.delabel:hover{
     color:rgb(91, 91, 91);
     cursor: pointer;
 }

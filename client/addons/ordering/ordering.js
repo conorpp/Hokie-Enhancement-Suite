@@ -7,7 +7,6 @@ $(document).on('ready', function(){     // need to wait for DOM to be done relia
     
     O.indexTable();
     O.loadTable();
-    console.log(O.data);
     var lastIndex = -1;
     $('td.sortable').on('click', function(){
         var index = $(this).attr('id').replace('header','').int();      // prototype in popup.js
@@ -105,8 +104,6 @@ var O = {
     /* combines two loaded rows for indexing */
     combine: function(r1, r2){
         for (var i in this.data[r2]) {
-            console.log('combing '+r2);
-            console.log(this.data[r1][i],this.data[r2][i]);
             if (this.data[r1][i] && this.data[r2][i]){
                 this.data[r1][i].html(
                     this.data[r1][i].html()+'<br>'+this.data[r2][i].html()

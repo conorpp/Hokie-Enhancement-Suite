@@ -37,3 +37,17 @@ New add ons need to be added to manifest.json
 
 
 
+### TODO
+
+When the extension icon is clicked, make the browser go to time table of classes page.
+
+Add a extension popup that will allow authentication so classes can be automatically added when a spot opens up.  Need a secure way to handle passwords.  Need a backend to scrape timetables.  
+
+Extend the design to other VT pages.
+
+
+
+
+
+
+

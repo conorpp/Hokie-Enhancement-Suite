@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Hokie Enhancement Suite",
-  "description": "This is a client side enhancement to hokie spa.",
-  "version": "1.0",
+  "description": "A large improvement for the time table of classes page.",
+  "version": "1.1",
 
   "browser_action": {
     "default_icon": "vt.png"
@@ -17,8 +17,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest",
-                  "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_DispRequest"],
+      "matches": ["https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.*"],
       "excudes": ["*"],
       
       "css": ["addons/popup/popup.css",
